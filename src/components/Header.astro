@@ -1,0 +1,78 @@
+---
+import GitHubIcon from "@images/GitHubIcon.astro";
+import XIcon from "@images/XIcon.astro";
+---
+
+<header>
+  <div class="header_inner">
+    <div class="header_logo_box">
+      <p class="logo">
+        <a href="">Gottu Tech</a>
+      </p>
+    </div>
+
+    <div class="header_nav_box">
+      <nav class="header_nav">
+        <ul>
+          <li>
+            <a href="">About</a>
+          </li>
+          <li>
+            <a href="">Works</a>
+          </li>
+          <li>
+            <a href="">Blog</a>
+          </li>
+          <li>
+            <a href="">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header_sns">
+        <a href="" target="_blank">
+          <XIcon />
+        </a>
+        <a href="" target="_blank">
+          <GitHubIcon />
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .logo {
+    font-size: 20px;
+  }
+
+  .logo a {
+    display: block;
+  }
+
+  .header_inner {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--black);
+    padding: 40px 0;
+  }
+
+  .header_nav ul {
+    display: flex;
+    column-gap: 30px;
+  }
+
+  .header_nav_box {
+    display: flex;
+    column-gap: 50px;
+  }
+
+  .header_sns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 10px;
+  }
+</style>

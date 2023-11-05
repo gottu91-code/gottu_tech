@@ -1,0 +1,52 @@
+---
+import ResetCSS from '@appzic/astro-reset-css/ResetCSS.astro';
+import Header from '../components/Header.astro';
+import '@fontsource/noto-sans-jp/300.css';
+import '@fontsource/noto-sans-jp/500.css';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<ResetCSS />
+	</head>
+	<body>
+		<div class="wrap">
+			<Header />
+			<main>
+				<slot />
+			</main>
+		</div>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--black: #202023;
+		--white: #f5f5f5
+	}
+
+	html {
+		font-family: system-ui, sans-serif;
+		background: var(--white);
+		font-family: 'Noto Sans JP', sans-serif;
+		font-weight: 100;
+	}
+
+	.wrap {
+		width: 850px;
+		margin-inline: auto;
+	}
+</style>
