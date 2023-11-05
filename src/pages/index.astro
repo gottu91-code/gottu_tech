@@ -1,11 +1,613 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import mainVisual from '@images/main_visual.jpg'
+import bobo from '@images/bobo.jpg'
+import maneyrelations from '@images/maneyrelations.jpg'
+import kakkosan from '@images/kakkosan.jpg'
+import aOfficeMiyakojima from '@images/a-office-miyakojima.jpg'
+import azamiannShirahama from '@images/azamiann-shirahama.jpg'
+import azamiRentalcar from '@images/azami-rentalcar.jpg'
+import sampleBlogImage from '@images/sample_blog.jpg'
 ---
 
 <Layout title="Gottu Tech | Webサイト制作とWebアプリ開発">
+  <section class="sec_main_visual" id="sec_main_visual">
+    <div class="main_visual_inner">
+      <div class="main_visual">
+        <Image
+          src={mainVisual}
+          alt='日が差している部屋'
+          class="image"
+        />
+        <div class="mask"></div>
+        <h1>Webサイト制作 / Webアプリ開発 を行っております。</h1>
+      </div>
+    </div>
+  </section>
 
+  <section class="sec_about" id="sec_about">
+    <div class="sec_container">
+      <div class="title_box">
+        <h2>About</h2>
+      </div>
+
+      <div class="sec_box">
+        <p class="text">
+          大阪を拠点に活動しているフリーランスのWebデベロッパー 後藤しょう と申します。<br>
+          Gottu Tech ( ゴッツテック ) は、事業を行う上での屋号です。Webサイト制作 / Webアプリ開発を行っております。コーディング / デザイン / 企画まで一貫して担当できます。制作実績 ( Works ) を見ていただいて、良いなと思ったらぜひお問い合わせくださいませ。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec_policy" id="sec_policy">
+    <div class="sec_container">
+      <div class="title_box">
+        <h2>Policy</h2>
+      </div>
+
+      <div class="sec_box">
+        <p class="text">価値を出す</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec_works" id="sec_works">
+    <div class="sec_container">
+      <div class="title_box">
+        <h2>Works</h2>
+      </div>
+
+      <div class="sec_box">
+        <div class="card_container">
+          <div class="card">
+            <div class="works_card_image">
+              <Image
+                src={bobo}
+                alt='ボボコンサルティング株式会社'
+              />
+            </div>
+
+            <div class="works_card_info">
+              <ul>
+                <li>
+                  <p class="label">Name</p>
+                  <p class="value">ボボコンサルティング株式会社</p>
+                </li>
+                <li>
+                  <p class="label">Type</p>
+                  <p class="value">Web Site</p>
+                </li>
+                <li>
+                  <p class="label">Phase</p>
+                  <p class="value">
+                    Design<br>
+                    Coding<br>
+                    Performance Tuning<br>
+                    ...All Others<br>
+                  </p>
+                </li>
+                <li>
+                  <p class="label">Tech</p>
+                  <p class="value">WordPress</p>
+                </li>
+                <li>
+                  <p class="label">URL</p>
+                  <p class="value">
+                    <a href="https://boboconsulting.com/" target="_blank">https://boboconsulting.com/</a>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="works_card_image">
+              <Image
+                src={maneyrelations}
+                alt='マネックリレーションズ株式会社'
+              />
+            </div>
+
+            <div class="works_card_info">
+              <ul>
+                <li>
+                  <p class="label">Name</p>
+                  <p class="value">マネックリレーションズ株式会社</p>
+                </li>
+                <li>
+                  <p class="label">Type</p>
+                  <p class="value">Web Site</p>
+                </li>
+                <li>
+                  <p class="label">Phase</p>
+                  <p class="value">
+                    Design<br>
+                    Coding<br>
+                    Performance Tuning<br>
+                    ...All Others<br>
+                  </p>
+                </li>
+                <li>
+                  <p class="label">Tech</p>
+                  <p class="value">WordPress</p>
+                </li>
+                <li>
+                  <p class="label">URL</p>
+                  <p class="value">
+                    <a href="https://moneyrelations.net/" target="_blank">https://moneyrelations.net/</a>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="works_card_image">
+              <Image
+                src={kakkosan}
+                alt='カッコで囲むさん ( Kakkosan )'
+              />
+            </div>
+
+            <div class="works_card_info">
+              <ul>
+                <li>
+                  <p class="label">Name</p>
+                  <p class="value">マネックリレーションズ株式会社</p>
+                </li>
+                <li>
+                  <p class="label">Type</p>
+                  <p class="value">Chrome Extension</p>
+                </li>
+                <li>
+                  <p class="label">Phase</p>
+                  <p class="value">
+                    Design<br>
+                    Programming<br>
+                    ...All Others<br>
+                  </p>
+                </li>
+                <li>
+                  <p class="label">Tech</p>
+                  <p class="value">
+                    Plasmo<br>
+                    Svelte<br>
+                    TypeScript<br>
+                  </p>
+                </li>
+                <li>
+                  <p class="label">URL</p>
+                  <p class="value">
+                    <a href="https://azami7.com/a-office-miyakojima/" target="_blank">https://chrome.google.com/webstore/detail/kakkosan/</a>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="works_card_image">
+              <Image
+                src={aOfficeMiyakojima}
+                alt='エーオフィス宮古島'
+              />
+            </div>
+
+            <div class="works_card_info">
+              <ul>
+                <li>
+                  <p class="label">Name</p>
+                  <p class="value">エーオフィス宮古島</p>
+                </li>
+                <li>
+                  <p class="label">Type</p>
+                  <p class="value">Web Site</p>
+                </li>
+                <li>
+                  <p class="label">Phase</p>
+                  <p class="value">
+                    Design<br>
+                    Coding<br>
+                    ...All Others<br>
+                  </p>
+                </li>
+                <li>
+                  <p class="label">Tech</p>
+                  <p class="value">React</p>
+                </li>
+                <li>
+                  <p class="label">URL</p>
+                  <p class="value">
+                    <a href="https://azami7.com/a-office-miyakojima/" target="_blank">https://azami7.com/a-office-miyakojima/</a>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="works_card_image">
+              <Image
+                src={azamiannShirahama}
+                alt='あざみ庵 白浜'
+              />
+            </div>
+
+            <div class="works_card_info">
+              <ul>
+                <li>
+                  <p class="label">Name</p>
+                  <p class="value">あざみ庵 白浜</p>
+                </li>
+                <li>
+                  <p class="label">Type</p>
+                  <p class="value">Web Site</p>
+                </li>
+                <li>
+                  <p class="label">Phase</p>
+                  <p class="value">
+                    Design<br>
+                    Coding<br>
+                    ...All Others<br>
+                  </p>
+                </li>
+                <li>
+                  <p class="label">Tech</p>
+                  <p class="value">
+                    HTML<br>
+                    CSS<br>
+                    JavaScript<br>
+                  </p>
+                </li>
+                <li>
+                  <p class="label">URL</p>
+                  <p class="value">
+                    <a href="https://shirahama-azamiann.azami-resort.com/" target="_blank">https://shirahama-azamiann.azami-resort.com/</a>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="works_card_image">
+              <Image
+                src={azamiRentalcar}
+                alt='アザミレンタカー'
+              />
+            </div>
+
+            <div class="works_card_info">
+              <ul>
+                <li>
+                  <p class="label">Name</p>
+                  <p class="value">アザミレンタカー</p>
+                </li>
+                <li>
+                  <p class="label">Type</p>
+                  <p class="value">Web Site</p>
+                </li>
+                <li>
+                  <p class="label">Phase</p>
+                  <p class="value">
+                    Design<br>
+                    Coding<br>
+                    ...All Others<br>
+                  </p>
+                </li>
+                <li>
+                  <p class="label">Tech</p>
+                  <p class="value">Astro</p>
+                </li>
+                <li>
+                  <p class="label">URL</p>
+                  <p class="value">
+                    <a href="https://rentalcar.azami-resort.com/" target="_blank">https://rentalcar.azami-resort.com/</a>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="sec_blog" id="sec_blog">
+    <div class="sec_container">
+      <div class="title_box">
+        <h2>Blog</h2>
+      </div>
+
+      <div class="sec_box">
+        <div class="card_container">
+          <div class="card">
+            <div class="blog_card_image">
+              <Image
+                src={sampleBlogImage}
+                alt='Astroを使用してWeb Siteを作成しました。'
+              />
+            </div>
+
+            <div class="blog_card_info">
+              <p class="date">2023-11-12</p>
+              <ul class="category">
+                <li>Astro</li>
+              </ul>
+              <p class="title">Astroを使用してWeb Siteを作成しました。</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="blog_card_image">
+              <Image
+                src={sampleBlogImage}
+                alt='Astroを使用してWeb Siteを作成しました。'
+              />
+            </div>
+
+            <div class="blog_card_info">
+              <p class="date">2023-11-12</p>
+              <ul class="category">
+                <li>Astro</li>
+              </ul>
+              <p class="title">Astroを使用してWeb Siteを作成しました。</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="blog_card_image">
+              <Image
+                src={sampleBlogImage}
+                alt='Astroを使用してWeb Siteを作成しました。'
+              />
+            </div>
+
+            <div class="blog_card_info">
+              <p class="date">2023-11-12</p>
+              <ul class="category">
+                <li>Astro</li>
+              </ul>
+              <p class="title">Astroを使用してWeb Siteを作成しました。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="sec_contact" id="sec_contact">
+    <div class="sec_container">
+      <div class="title_box">
+        <h2>Contact</h2>
+      </div>
+
+      <div class="sec_box">
+        <p class="text">各種お問い合わせ / ご相談は下記からお願いいたします。数日で返信いたします。</p>
+
+        <form class="contact_form" action="https://gottu-tech.form.newt.so/v1/CqIaw_H58" method="post">
+          <div class="form_inner">
+            <div class="form_field">
+              <p class="form_label">お問い合わせ種別</p>
+              <div class="form_value">
+                <ul>
+                  <li>
+                    <label>
+                      <input type="radio" name="type" value="Webサイト制作依頼">
+                      Webサイト制作依頼
+                    </label>
+                  </li>
+                  <li>
+                    <label>
+                      <input type="radio" name="type" value="アプリ開発依頼">
+                      アプリ開発依頼
+                    </label>
+                  </li>
+                  <li>
+                    <label>
+                      <input type="radio" name="type" value="見積もり依頼">
+                      見積もり依頼
+                    </label>
+                  </li>
+                  <li>
+                    <label>
+                      <input type="radio" name="type" value="その他">
+                      その他
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form_field">
+              <p class="form_lab">お名前 [必須]</p>
+              <div class="form_value">
+                <input type="text" name="name" placeholder="ゴッツ 太郎" required>
+              </div>
+            </div>
+
+            <div class="form_field">
+              <p class="form_lab">メールアドレス [必須]</p>
+              <div class="form_value">
+                <input type="email" name="email" placeholder="gottu-taro@xxx.com" required>
+              </div>
+            </div>
+
+            <div class="form_field">
+              <p class="form_lab">内容</p>
+              <div class="form_value">
+                <textarea name="content" cols="30" rows="10" placeholder="Webサイトを作成したいです。予算は◯◯くらいです。店舗の売上を伸ばせるようなサイトにしたいです。一度相談をしたいです。よろしくお願いいたします。"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="submit_button">送信する</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
+  .main_visual {
+    display: grid;
+  }
 
+  .main_visual .image {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+  }
+
+  .main_visual .mask {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+  }
+
+  .main_visual h1 {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    display: grid;
+    place-content: center;
+    color: var(--white);
+    font-size: 18px;
+  }
+
+  .sec_container {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+}
+
+  .sec_container .title_box h2 {
+    border-bottom: 1px solid var(--black);
+    width: fit-content;
+    padding: 0 0 1em;
+  }
+
+  .card_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 60px;
+  }
+
+  .works_card_info ul li {
+    display: grid;
+    grid-template-columns: 74px 1fr;
+    column-gap: 16px;
+    align-items: baseline;
+  }
+
+  .works_card_info ul li .label {
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    border-radius: 100px;
+    font-size: 12px;
+    padding: 0.1em 0 0.2em;
+  }
+
+  .works_card_info ul li .value {
+    font-size: 15px;
+  }
+
+  .works_card_info ul {
+    display: grid;
+    row-gap: 8px;
+  }
+
+  .card {
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+    row-gap: 16px;
+  }
+
+  .blog_card_info .date {
+    font-size: 10px;
+  }
+
+  .blog_card_info .category li {
+      color: var(--white);
+      background-color: var(
+      --black);
+      border-radius: 100px;
+      font-size: 12px;
+      padding: 0em 1.8em 0.1em;
+  }
+
+  .blog_card_info .category {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+  }
+
+  .blog_card_info {
+      display: grid;
+      gap: 5px;
+  }
+
+  .form_field {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    column-gap: 40px;
+  }
+
+  .form_value ul {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 30px;
+      row-gap: 10px;
+  }
+
+  .form_value ul li label {
+      cursor: pointer;
+  }
+
+  .form_value input[type="text"], .form_value input[type="email"], .form_value textarea {
+      width: 100%;
+      padding: 0.6em 1em;
+  }
+
+  .form_inner {
+    display: grid;
+    row-gap: 24px;
+  }
+
+  .submit_button {
+      background-color: var(--black);
+      color: var(--white);
+      width: fit-content;
+      margin-inline: auto;
+      padding: 0.5em 4.2em;
+      border-radius: 100px;
+  }
+
+  .contact_form {
+    margin-top: 24px;
+  }
+
+  @media (max-width: 767px) {
+    .main_visual h1 {
+      padding: 0 50px;
+      text-align: center;
+    }
+
+    .sec_container {
+      grid-template-columns: 1fr;
+      row-gap: 30px;
+    }
+
+    .card_container {
+      grid-template-columns: 1fr;
+    }
+
+    .form_field {
+      grid-template-columns: 1fr;
+      row-gap: 12px;
+    }
+  }
 </style>

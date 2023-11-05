@@ -15,25 +15,25 @@ import XIcon from "@images/XIcon.astro";
       <nav class="header_nav">
         <ul>
           <li>
-            <a href="">About</a>
+            <a href="#sec_about">About</a>
           </li>
           <li>
-            <a href="">Works</a>
+            <a href="#sec_works">Works</a>
           </li>
+          <!-- <li>
+            <a href="#sec_blog">Blog</a>
+          </li> -->
           <li>
-            <a href="">Blog</a>
-          </li>
-          <li>
-            <a href="">Contact</a>
+            <a href="#sec_contact">Contact</a>
           </li>
         </ul>
       </nav>
 
       <div class="header_sns">
-        <a href="" target="_blank">
+        <a href="https://twitter.com/gottu91" target="_blank">
           <XIcon />
         </a>
-        <a href="" target="_blank">
+        <a href="https://github.com/gottu91-code" target="_blank">
           <GitHubIcon />
         </a>
       </div>
@@ -43,7 +43,7 @@ import XIcon from "@images/XIcon.astro";
 
 <style>
   .logo {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .logo a {
@@ -56,7 +56,7 @@ import XIcon from "@images/XIcon.astro";
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--black);
-    padding: 40px 0;
+    padding: 30px 0;
   }
 
   .header_nav ul {
@@ -75,4 +75,10 @@ import XIcon from "@images/XIcon.astro";
     align-items: center;
     column-gap: 12px;
   }
+
+  @media (max-width: 767px) {
+    .header_nav {
+      display: none;
+    }
+	}
 </style>
