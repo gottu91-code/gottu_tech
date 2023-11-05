@@ -3,6 +3,7 @@ import ResetCSS from '@appzic/astro-reset-css/ResetCSS.astro';
 import Header from '../components/Header.astro';
 import '@fontsource/noto-sans-jp/300.css';
 import '@fontsource/noto-sans-jp/500.css';
+import Footer from '@components/Footer.astro';
 
 interface Props {
 	title: string;
@@ -26,8 +27,11 @@ const { title } = Astro.props;
 		<div class="wrap">
 			<Header />
 			<main>
-				<slot />
+				<div class="wrap_inner">
+					<slot />
+				</div>
 			</main>
+			<Footer />
 		</div>
 	</body>
 </html>
@@ -39,14 +43,36 @@ const { title } = Astro.props;
 	}
 
 	html {
-		font-family: system-ui, sans-serif;
 		background: var(--white);
 		font-family: 'Noto Sans JP', sans-serif;
 		font-weight: 100;
-	}
+		font-feature-settings: "palt";
+		letter-spacing: 0.04em;
+		line-height: 1.6;
+		word-break: break-all;
+		scroll-padding-top: 100px;
 
 	.wrap {
 		width: 850px;
 		margin-inline: auto;
+	}
+
+	.wrap_inner {
+		padding: 100px 0;
+		display: grid;
+		row-gap: 80px;
+	}
+
+	@media (max-width: 820px) {
+		.wrap {
+			width: 90%;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.wrap_inner {
+      row-gap: 60px;
+			padding: 60px 0;
+    }
 	}
 </style>
