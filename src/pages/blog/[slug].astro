@@ -1,0 +1,140 @@
+---
+import Layout from '@layouts/Layout.astro'
+import { newtClient } from '@lib/newt'
+import type { Article } from '@lib/newt'
+
+export const getStaticPaths = async () => {
+  const { items: articles } = await newtClient.getContents<Article>({
+    appUid: 'blog',
+    modelUid: 'article',
+  })
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }))
+}
+
+const { article } = Astro.props
+const createdAt = new Date(article._sys.createdAt);
+const formattedCreatedAt = `${createdAt.getFullYear()}-${createdAt.getMonth() + 1}-${createdAt.getDate()}`;
+const updatedAt = new Date(article._sys.updatedAt);
+const formattedUpdatedAt = `${updatedAt.getFullYear()}-${updatedAt.getMonth() + 1}-${updatedAt.getDate()}`;
+---
+
+<Layout title={article.title}>
+  <div class="wrap_inner blog">
+    <div class="title_box">
+      <h1>{article.title}</h1>
+      <p class="publish_date">公開日:{formattedCreatedAt}</p>
+      <p class="updated_date">編集日:{formattedUpdatedAt}</p>
+    </div>
+
+    <!-- <div class="index_box">
+      <p class="title">目次 Index</p>
+      <ol>
+        <li>◯◯について</li>
+        <li>◯◯について</li>
+        <li>◯◯について</li>
+      </ol>
+    </div> -->
+
+    <article class="blog_article" set:html={article.textarea} />
+  </div>
+</Layout>
+
+<style>
+  .wrap_inner.blog {
+    width: 80%;
+    margin-inline: auto;
+  }
+
+  .title_box {
+    display: grid;
+    grid-template:
+      "title   title " auto
+      "publish updated" auto
+      /max-content 1fr;
+    row-gap: 20px;
+    column-gap: 14px;
+  }
+
+  .title_box h1 {
+    grid-area: title;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .title_box .publish_date {
+    grid-area: publish;
+    font-size: 13px;
+  }
+
+  .title_box .updated_date {
+    grid-area: updated;
+    font-size: 13px;
+  }
+
+  .index_box {
+    background-color: #EAEAEA;
+    padding: 32px 40px;
+    display: grid;
+    row-gap: 14px;
+  }
+
+  .index_box .title {
+    font-size: 15px;
+  }
+
+  .index_box ol {
+    display: grid;
+    row-gap: 6px;
+  }
+
+  .index_box ol li {
+    font-size: 14px;
+    list-style: decimal;
+    margin-left: 1.4em;
+  }
+
+  @media (max-width: 767px) {
+    .wrap_inner.blog {
+      width: 100%;
+    }
+  }
+</style>
+
+<style is:inline>
+  .blog_article {
+    display: grid;
+    row-gap: 20px;
+  }
+
+  .blog_article h1 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 50px;
+  }
+
+  .blog_article h2 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 50px;
+  }
+
+  .blog_article h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 50px;
+  }
+
+  .blog_article h1:nth-child(1),
+  .blog_article h2:nth-child(1),
+  .blog_article h3:nth-child(1) {
+    margin-top: 0px;
+  }
+
+  .blog_article .ql-syntax {
+    background-color: black;
+    color: #fff;
+  }
+</style>
