@@ -49,9 +49,7 @@ const pageTitle = title ? title + ' | ' + defaultTitle : defaultTitle;
 		<div class="wrap">
 			<Header />
 			<main>
-				<div class="wrap_inner">
-					<slot />
-				</div>
+				<slot />
 			</main>
 			<Footer />
 		</div>
@@ -86,6 +84,35 @@ const pageTitle = title ? title + ' | ' + defaultTitle : defaultTitle;
 		row-gap: 80px;
 	}
 
+	.sec_container {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+  }
+
+  .sec_container .title_box h2 {
+    border-bottom: 1px solid var(--black);
+    width: fit-content;
+    padding: 0 0 1em;
+  }
+
+  .card_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 60px;
+  }
+
+  .card a {
+    display: contents;
+  }
+
+  .card {
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+    row-gap: 16px;
+  }
+
 	@media (max-width: 820px) {
 		.wrap {
 			width: 90%;
@@ -96,6 +123,15 @@ const pageTitle = title ? title + ' | ' + defaultTitle : defaultTitle;
 		.wrap_inner {
       row-gap: 60px;
 			padding: 60px 0;
+    }
+
+		.sec_container {
+      grid-template-columns: 1fr;
+      row-gap: 30px;
+    }
+
+    .card_container {
+      grid-template-columns: 1fr;
     }
 	}
 </style>

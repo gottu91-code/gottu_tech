@@ -1,0 +1,78 @@
+---
+import { newtClient } from '@lib/newt'
+import type { Article } from '@lib/newt'
+
+const { items: articles } = await newtClient.getContents<Article>({
+  appUid: 'blog',
+  modelUid: 'article',
+})
+---
+
+<section class="sec_blog" id="sec_blog">
+  <div class="sec_container">
+    <div class="title_box">
+      <h2>Blog</h2>
+    </div>
+
+    <div class="sec_box">
+      <div class="card_container">
+        {
+          articles.map((article) => {
+            const date = new Date(article._sys.createdAt);
+            const createdAt = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+
+            const imgSrc = article.thumbnail.src;
+            const formatQuery = '?format=auto'
+
+            return (
+              <div class="card">
+                <a href={`/blog/${article.slug}`}>
+                  <div class="card_image">
+                    <img src={imgSrc + formatQuery}  decoding="async" loading="lazy" width={article.thumbnail.width} height={article.thumbnail.height} />
+                  </div>
+
+                  <div class="blog_card_info">
+                    <p class="date">{createdAt}</p>
+                    <ul class="category">
+                      {article.category.map((category) => {
+                        return <li>{category.category}</li>
+                      })}
+                    </ul>
+                    <p class="title">{article.title}</p>
+                  </div>
+                </a>
+              </div>
+            )
+          })
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .blog_card_info .date {
+    font-size: 12px;
+  }
+
+  .blog_card_info .category li {
+      color: var(--white);
+      background-color: var(
+      --black);
+      border-radius: 100px;
+      font-size: 12px;
+      padding: 0em 1.8em 0.1em;
+  }
+
+  .blog_card_info .category {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+  }
+
+  .blog_card_info {
+      display: grid;
+      gap: 5px;
+      align-content: start;
+  }
+</style>
