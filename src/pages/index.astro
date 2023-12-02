@@ -301,7 +301,9 @@ import SecBlog from '@components/SecBlog.astro';
         <div class="sec_box">
           <p class="text">各種お問い合わせ / ご相談は下記からお願いいたします。数日で返信いたします。</p>
 
-          <form class="contact_form" action="https://gottu-tech.form.newt.so/v1/CqIaw_H58" method="post">
+          <script is:inline src="https://www.google.com/recaptcha/api.js?render=6LeLlyMpAAAAAIbDjgabPOCby_b2AoF0BHdaYJ7D&hl=ja"></script>
+          <form id="form" class="contact_form">
+            <input type="hidden" id="recaptchaToken" name="googleReCaptchaToken" />
             <div class="form_inner">
               <div class="form_field">
                 <p class="form_label">お問い合わせ種別</p>
@@ -359,6 +361,52 @@ import SecBlog from '@components/SecBlog.astro';
               <button type="submit" class="submit_button">送信する</button>
             </div>
           </form>
+
+          <script>
+            const form = document.getElementById('form')
+            form?.addEventListener('submit', submitFormData)
+
+            function submitFormData(event: Event) {
+              event.preventDefault()
+              grecaptcha.ready(() => {
+                grecaptcha
+                  .execute('6LeLlyMpAAAAAIbDjgabPOCby_b2AoF0BHdaYJ7D', { action: 'submit' })
+                  .then(async (token) => {
+                    const target = event.target as typeof event.target & {
+                      type: {value: string}
+                      name: { value: string }
+                      email: { value: string }
+                      content: { value: string }
+                    }
+
+                    const data = {
+                      type: target.type.value,
+                      name: target.name.value,
+                      email: target.email.value,
+                      content: target.content.value,
+                      googleReCaptchaToken: token,
+                    }
+
+                    const formData = new FormData()
+                    Object.entries(data).forEach(([key, value]) => {
+                      formData.append(key, value)
+                    })
+
+                    await sendRequest(formData)
+                  })
+              })
+            }
+
+            async function sendRequest(formData: FormData) {
+              return await fetch('https://gottu-tech.form.newt.so/v1/CqIaw_H58', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                  Accept: 'application/json',
+                },
+              })
+            }
+          </script>
         </div>
       </div>
     </section>
