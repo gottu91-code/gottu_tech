@@ -9,6 +9,8 @@ import azamiannShirahama from '@images/azamiann-shirahama.jpg'
 import azamiRentalcar from '@images/azami-rentalcar.jpg'
 import ExternalLinkIcon from '@images/ExternalLinkIcon.astro';
 import SecBlog from '@components/SecBlog.astro';
+
+const recaptchaSiteKey = import.meta.env.RECAPTCHA_SITE_KEY;
 ---
 
 <Layout title="">
@@ -365,8 +367,9 @@ import SecBlog from '@components/SecBlog.astro';
   </div>
 </Layout>
 
-<script is:inline src="https://www.google.com/recaptcha/api.js?render=6LeLlyMpAAAAAIbDjgabPOCby_b2AoF0BHdaYJ7D&hl=ja"></script>
+<script is:inline src=`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}&hl=ja`></script>
 <script>
+  const recaptchaSiteKey = import.meta.env.RECAPTCHA_SITE_KEY;
   const form = document.getElementById('form')
   form?.addEventListener('submit', submitFormData)
 
@@ -375,7 +378,7 @@ import SecBlog from '@components/SecBlog.astro';
 
     grecaptcha.ready(() => {
       grecaptcha
-        .execute('6LeLlyMpAAAAAIbDjgabPOCby_b2AoF0BHdaYJ7D', { action: 'submit' })
+        .execute(recaptchaSiteKey, { action: 'submit' })
         .then(async (token) => {
           const target = event.target as typeof event.target & {
             type: {value: string}
