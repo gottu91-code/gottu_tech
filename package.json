@@ -16,5 +16,8 @@
     "astro": "^3.4.3",
     "newt-client-js": "^3.2.8",
     "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/grecaptcha": "^3.0.7"
   }
 }
