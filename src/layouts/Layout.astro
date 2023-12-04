@@ -12,6 +12,7 @@ interface Props {
 const { title } = Astro.props;
 const defaultTitle = 'Gottu Tech - Webサイト制作とWebアプリ開発';
 const pageTitle = title ? title + ' | ' + defaultTitle : defaultTitle;
+const description = 'Webサイト制作 / Webアプリ開発を行っております。コーディング / デザイン / 企画まで一貫して担当できます。制作実績 ( Works ) を見ていただいて、良いなと思ったらぜひお問い合わせくださいませ。大阪を拠点にしており、Gottu Tech ( ゴッツテック ) は事業を行う上での屋号です。'
 ---
 
 <!doctype html>
@@ -26,20 +27,20 @@ const pageTitle = title ? title + ' | ' + defaultTitle : defaultTitle;
 		<!-- Primary Meta Tags -->
 		<title>{pageTitle}</title>
 		<meta name="title" content={pageTitle} />
-		<meta name="description" content="大阪を拠点に活動しているフリーランスのWebデベロッパー 後藤しょう と申します。Gottu Tech ( ゴッツテック ) は、事業を行う上での屋号です。Webサイト制作 / Webアプリ開発を行っております。コーディング / デザイン / 企画まで一貫して担当できます。制作実績 ( Works ) を見ていただいて、良いなと思ったらぜひお問い合わせくださいませ。" />
+		<meta name="description" content={description} />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://gottu-tech.com/" />
 		<meta property="og:title" content={pageTitle} />
-		<meta property="og:description" content="大阪を拠点に活動しているフリーランスのWebデベロッパー 後藤しょう と申します。Gottu Tech ( ゴッツテック ) は、事業を行う上での屋号です。Webサイト制作 / Webアプリ開発を行っております。コーディング / デザイン / 企画まで一貫して担当できます。制作実績 ( Works ) を見ていただいて、良いなと思ったらぜひお問い合わせくださいませ。" />
+		<meta property="og:description" content={description} />
 		<meta property="og:image" content="https://gottu-tech.com/ogp.jpg" />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content="https://gottu-tech.com/" />
 		<meta property="twitter:title" content={pageTitle} />
-		<meta property="twitter:description" content="大阪を拠点に活動しているフリーランスのWebデベロッパー 後藤しょう と申します。Gottu Tech ( ゴッツテック ) は、事業を行う上での屋号です。Webサイト制作 / Webアプリ開発を行っております。コーディング / デザイン / 企画まで一貫して担当できます。制作実績 ( Works ) を見ていただいて、良いなと思ったらぜひお問い合わせくださいませ。" />
+		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content="https://gottu-tech.com/ogp.jpg" />
 
 		<!-- Meta Tags Generated with https://metatags.io -->
@@ -71,6 +72,10 @@ const pageTitle = title ? title + ' | ' + defaultTitle : defaultTitle;
 		word-break: break-all;
 		scroll-padding-top: 100px;
 	}
+
+	a {
+    text-decoration: underline;
+  }
 
 	.wrap {
 		width: 850px;
