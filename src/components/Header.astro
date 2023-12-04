@@ -84,6 +84,12 @@ import XIcon from "@images/XIcon.astro";
 </script>
 
 <style>
+  .header {
+      position: sticky;
+      top: 0;
+      background-color: var(--white);
+    }
+
   .logo {
     font-size: 18px;
   }
@@ -134,12 +140,6 @@ import XIcon from "@images/XIcon.astro";
     }
 
   @media (max-width: 767px) {
-    .header {
-      position: sticky;
-      top: 0;
-      background-color: var(--white);
-    }
-
     .header_inner {
       grid-template:
         "logo sns hg" auto /
