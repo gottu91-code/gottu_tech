@@ -73,12 +73,11 @@ import XIcon from "@images/XIcon.astro";
     hgMenuBtn.toggleAttribute("data-open")
   });
 
-  // window.onbeforeunload = (event: BeforeUnloadEvent) => {
-  //   document.querySelectorAll('[data-open]').forEach((elem) => {
-  //     elem.removeAttribute("data-open")
-  //   });
-  // };
-
+  window.onbeforeunload = (event: BeforeUnloadEvent) => {
+    document.querySelectorAll('[data-open]').forEach((elem) => {
+      elem.removeAttribute("data-open")
+    });
+  };
 </script>
 
 <style>
