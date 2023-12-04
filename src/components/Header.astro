@@ -3,60 +3,113 @@ import GitHubIcon from "@images/GitHubIcon.astro";
 import XIcon from "@images/XIcon.astro";
 ---
 
-<header>
+<header class="header" id="header">
   <div class="header_inner">
-    <div class="header_logo_box">
-      <p class="logo">
-        <a href="/">Gottu Tech</a>
-      </p>
+    <a class="logo" href="/">Gottu Tech</a>
+
+    <nav class="header_nav">
+      <ul>
+        <li>
+          <a href="/#sec_about">About</a>
+        </li>
+        <li>
+          <a href="/#sec_works">Works</a>
+        </li>
+        <li>
+          <a href="/blog">Blog</a>
+        </li>
+        <li>
+          <a href="/contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header_sns_icons">
+      <a href="https://twitter.com/gottu91" target="_blank">
+        <XIcon />
+      </a>
+      <a href="https://github.com/gottu91-code/gottu_tech" target="_blank">
+        <GitHubIcon />
+      </a>
     </div>
 
-    <div class="header_nav_box">
-      <nav class="header_nav">
-        <ul>
-          <li>
-            <a href="/#sec_about">About</a>
-          </li>
-          <li>
-            <a href="/#sec_works">Works</a>
-          </li>
-          <li>
-            <a href="/blog">Blog</a>
-          </li>
-          <li>
-            <a href="/contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="header_sns_icons">
-        <a href="https://twitter.com/gottu91" target="_blank">
-          <XIcon />
-        </a>
-        <a href="https://github.com/gottu91-code/gottu_tech" target="_blank">
-          <GitHubIcon />
-        </a>
-      </div>
+    <div class="header_hg_menu_btn" id="header_hg_menu_btn">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
     </div>
   </div>
 </header>
+
+<div class="header_hg_menu" id="header_hg_menu">
+  <div class="header_hg_menu_list">
+    <ul>
+      <li>
+        <a href="/#sec_about">About</a>
+      </li>
+      <li>
+        <a href="/#sec_works">Works</a>
+      </li>
+      <li>
+        <a href="/blog">Blog</a>
+      </li>
+      <li>
+        <a href="/contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const hgMenuBtn = document.getElementById("header_hg_menu_btn");
+  const hgMenu = document.getElementById("header_hg_menu") as HTMLElement;
+  const body = document.getElementsByTagName("body")[0];
+  const hgMenuBtnList = document.querySelectorAll(".header_hg_menu_list ul li a");
+
+  hgMenuBtn?.addEventListener("click", (e) => {
+    const headerHeight = document.getElementById("header")?.clientHeight as number
+    hgMenu.style.height = `calc(100% - ${headerHeight}px)`;
+    body.toggleAttribute("data-open")
+    hgMenu?.toggleAttribute("data-open");
+    hgMenuBtn.toggleAttribute("data-open")
+  });
+
+  hgMenuBtnList.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll("[data-open]").forEach((elem) => {
+        elem.removeAttribute('data-open');
+      });
+    });
+  });
+</script>
 
 <style>
   .logo {
     font-size: 18px;
   }
 
-  .logo a {
-    display: block;
-  }
-
   .header_inner {
     display: grid;
-    grid-template-columns: repeat(2, max-content);
-    justify-content: space-between;
+    grid-template:
+      "logo nav sns" auto /
+       auto 1fr auto;
+    column-gap: 40px;
     align-items: center;
     border-bottom: 1px solid var(--black);
     padding: 30px 0;
+  }
+
+  .header_nav {
+    grid-area: nav;
+    justify-self: end;
+  }
+
+  .header_sns_icons {
+    grid-area: sns;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 12px;
   }
 
   .header_nav ul {
@@ -64,21 +117,90 @@ import XIcon from "@images/XIcon.astro";
     column-gap: 30px;
   }
 
-  .header_nav_box {
-    display: flex;
-    column-gap: 50px;
+  .header_hg_menu_btn {
+    display: none;
   }
 
-  .header_sns_icons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    column-gap: 12px;
-  }
+  .header_hg_menu {
+      visibility: hidden;
+      opacity: 0;
+      position: fixed;
+      z-index: 9999;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--white);
+      transition: 0.2s;
+    }
 
   @media (max-width: 767px) {
+    .header {
+      position: sticky;
+      top: 0;
+      background-color: var(--white);
+    }
+
+    .header_inner {
+      grid-template:
+        "logo sns hg" auto /
+         auto 1fr 34px;
+      column-gap: 30px;
+      padding: 20px 0;
+    }
+
+    .header_sns_icons {
+      justify-self: end;
+    }
+
     .header_nav {
       display: none;
+    }
+
+    .header_hg_menu_btn {
+      display: grid;
+      align-content: space-between;
+      height: 16px;
+    }
+
+    .header_hg_menu_btn .line {
+      display: block;
+      height: 1px;
+      background-color: var(--black);
+      transition: 0.2s;
+      transform-origin: left center;
+    }
+
+    .header_hg_menu_btn[data-open] .line:nth-child(1) {
+      transform: rotate(24deg) scaleX(1.1);
+    }
+
+    .header_hg_menu_btn[data-open] .line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .header_hg_menu_btn[data-open] .line:nth-child(3) {
+      transform: rotate(-24deg) scaleX(1.1);
+    }
+
+    .header_hg_menu[data-open] {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .header_hg_menu_list {
+      display: grid;
+      place-content: center;
+      height: 100%;
+    }
+
+    .header_hg_menu_list ul {
+      display: grid;
+      row-gap: 40px;
+    }
+
+    .header_hg_menu_list ul li {
+      text-align: center;
+      font-size: 18px;
     }
 	}
 </style>
