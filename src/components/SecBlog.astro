@@ -28,7 +28,7 @@ const { items: articles } = await newtClient.getContents<Article>({
               <div class="card">
                 <a href={`/blog/${article.slug}`}>
                   <div class="card_image">
-                    <img src={imgSrc + formatQuery}  decoding="async" loading="lazy" width={article.thumbnail.width} height={article.thumbnail.height} />
+                    <img src={imgSrc + formatQuery}  decoding="async" loading="lazy" width={article.thumbnail.width} height={article.thumbnail.height} alt={article.title} />
                   </div>
 
                   <div class="blog_card_info">
