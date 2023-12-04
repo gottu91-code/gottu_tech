@@ -15,10 +15,14 @@ export const getStaticPaths = async () => {
 }
 
 const { article } = Astro.props
+
 const createdAt = new Date(article._sys.createdAt);
 const formattedCreatedAt = `${createdAt.getFullYear()}-${createdAt.getMonth() + 1}-${createdAt.getDate()}`;
 const updatedAt = new Date(article._sys.updatedAt);
 const formattedUpdatedAt = `${updatedAt.getFullYear()}-${updatedAt.getMonth() + 1}-${updatedAt.getDate()}`;
+
+const imgSrc = article.thumbnail.src;
+const formatQuery = '?format=auto'
 ---
 
 <Layout title={article.title}>
@@ -27,6 +31,10 @@ const formattedUpdatedAt = `${updatedAt.getFullYear()}-${updatedAt.getMonth() + 
       <h1>{article.title}</h1>
       <p class="publish_date">公開日:{formattedCreatedAt}</p>
       <p class="updated_date">編集日:{formattedUpdatedAt}</p>
+    </div>
+
+    <div class="thumbnail_box">
+      <img src={imgSrc + formatQuery}  decoding="async" loading="lazy" width={article.thumbnail.width} height={article.thumbnail.height} />
     </div>
 
     <!-- <div class="index_box">
@@ -60,7 +68,7 @@ const formattedUpdatedAt = `${updatedAt.getFullYear()}-${updatedAt.getMonth() + 
 
   .title_box h1 {
     grid-area: title;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 600;
   }
 
@@ -96,6 +104,10 @@ const formattedUpdatedAt = `${updatedAt.getFullYear()}-${updatedAt.getMonth() + 
     margin-left: 1.4em;
   }
 
+  .thumbnail_box img {
+    width: 100%;
+  }
+
   @media (max-width: 767px) {
     .wrap_inner.blog {
       width: 100%;
@@ -107,6 +119,10 @@ const formattedUpdatedAt = `${updatedAt.getFullYear()}-${updatedAt.getMonth() + 
   .blog_article {
     display: grid;
     row-gap: 20px;
+  }
+
+  .blog_article a {
+    text-decoration: underline;
   }
 
   .blog_article h1 {
