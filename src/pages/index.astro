@@ -35,7 +35,7 @@ import SecBlog from '@components/SecBlog.astro';
 
         <div class="sec_box">
           <p class="text">
-            Webサイト制作 / Webアプリ開発を行っております。コーディング / デザイン / 企画まで一貫して担当できます。制作実績 ( Works ) を見ていただいて、良いなと思ったらぜひ<a class="underline" href="#sec_contact">お問い合わせ</a>くださいませ。大阪を拠点にしており、Gottu Tech ( ゴッツテック ) は事業を行う上での屋号です。
+            Webサイト制作 / Webアプリ開発を行っております。コーディング / デザイン / 企画まで一貫して担当できます。制作実績 ( Works ) を見ていただいて、良いなと思ったらぜひ<a class="underline" href="/contact">お問い合わせ</a>くださいませ。大阪を拠点にしており、Gottu Tech ( ゴッツテック ) は事業を行う上での屋号です。
           </p>
         </div>
       </div>
@@ -290,140 +290,8 @@ import SecBlog from '@components/SecBlog.astro';
     </section>
 
     <SecBlog />
-
-    <section class="sec_contact" id="sec_contact">
-      <div class="sec_container">
-        <div class="title_box">
-          <h2>Contact</h2>
-        </div>
-
-        <div class="sec_box">
-          <p class="text">各種お問い合わせ / ご相談は下記からお願いいたします。数日で返信いたします。</p>
-          <form id="form" class="contact_form">
-            <input type="hidden" id="recaptchaToken" name="googleReCaptchaToken" />
-            <div class="form_inner">
-              <div class="form_field">
-                <p class="form_label">お問い合わせ種別</p>
-                <div class="form_value">
-                  <ul>
-                    <li>
-                      <label>
-                        <input type="radio" name="type" value="Webサイト制作依頼" checked>
-                        Webサイト制作依頼
-                      </label>
-                    </li>
-                    <li>
-                      <label>
-                        <input type="radio" name="type" value="アプリ開発依頼">
-                        アプリ開発依頼
-                      </label>
-                    </li>
-                    <li>
-                      <label>
-                        <input type="radio" name="type" value="見積もり依頼">
-                        見積もり依頼
-                      </label>
-                    </li>
-                    <li>
-                      <label>
-                        <input type="radio" name="type" value="その他">
-                        その他
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="form_field">
-                <p class="form_lab">お名前 [必須]</p>
-                <div class="form_value">
-                  <input type="text" name="name" placeholder="ゴッツ 太郎" required>
-                </div>
-              </div>
-
-              <div class="form_field">
-                <p class="form_lab">メールアドレス [必須]</p>
-                <div class="form_value">
-                  <input type="email" name="email" placeholder="gottu-taro@xxx.com" required>
-                </div>
-              </div>
-
-              <div class="form_field">
-                <p class="form_lab">内容</p>
-                <div class="form_value">
-                  <textarea name="content" cols="30" rows="10" placeholder="Webサイトを作成したいです。&#13;&#10;予算 : ◯◯万円。&#13;&#10;相談内容 : 店舗の売上を伸ばせるようなサイトにしたいです。一度相談をしたいです。よろしくお願いいたします。"></textarea>
-                </div>
-              </div>
-
-              <button type="submit" class="submit_button">送信する</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
   </div>
 </Layout>
-
-<script is:inline src='https://www.google.com/recaptcha/api.js?render=6LeLlyMpAAAAAIbDjgabPOCby_b2AoF0BHdaYJ7D&hl=ja'></script>
-<script>
-  const form = document.getElementById('form')
-  form?.addEventListener('submit', submitFormData)
-
-  function submitFormData(event: Event) {
-    event.preventDefault()
-
-    grecaptcha.ready(() => {
-      grecaptcha
-        .execute('6LeLlyMpAAAAAIbDjgabPOCby_b2AoF0BHdaYJ7D', { action: 'submit' })
-        .then(async (token) => {
-          const target = event.target as typeof event.target & {
-            type: {value: string}
-            name: { value: string }
-            email: { value: string }
-            content: { value: string }
-          }
-
-          const data = {
-            type: target.type.value,
-            name: target.name.value,
-            email: target.email.value,
-            content: target.content.value,
-            googleReCaptchaToken: token,
-          }
-
-          const formData = new FormData()
-          Object.entries(data).forEach(([key, value]) => {
-            formData.append(key, value)
-          })
-
-          resetForm()
-          const res = await sendRequest(formData)
-          if(res.ok) {
-            window.location.href = '/thanks'
-          }
-        })
-    })
-  }
-
-  function resetForm() {
-    const inputName = document.querySelector('input[name="name"]') as HTMLInputElement
-    inputName.value = ''
-    const inputEmail = document.querySelector('input[name="email"]') as HTMLInputElement
-    inputEmail.value = ''
-    const textareaContent = document.querySelector('textarea[name="content"]') as HTMLInputElement
-    textareaContent.value = ''
-  }
-
-  async function sendRequest(formData: FormData) {
-    return await fetch('https://gottu-tech.form.newt.so/v1/CqIaw_H58', {
-      method: 'POST',
-      body: formData,
-      headers: {
-        Accept: 'application/json',
-      },
-    })
-  }
-</script>
 
 <style>
   .main_visual {
@@ -476,60 +344,10 @@ import SecBlog from '@components/SecBlog.astro';
     row-gap: 8px;
   }
 
-  .form_field {
-    display: grid;
-    grid-template-columns: 170px 1fr;
-    column-gap: 40px;
-  }
-
-  .form_value ul {
-      display: flex;
-      flex-wrap: wrap;
-      column-gap: 30px;
-      row-gap: 10px;
-  }
-
-  .form_value ul li label {
-      cursor: pointer;
-  }
-
-  .form_value input[type="text"], .form_value input[type="email"], .form_value textarea {
-      width: 100%;
-      padding: 0.6em 1em;
-  }
-
-  .form_inner {
-    display: grid;
-    row-gap: 24px;
-  }
-
-  .submit_button {
-      background-color: var(--black);
-      color: var(--white);
-      width: fit-content;
-      margin-inline: auto;
-      padding: 0.5em 4.2em;
-      border-radius: 100px;
-  }
-
-  .contact_form {
-    margin-top: 24px;
-  }
-
   @media (max-width: 767px) {
     .main_visual h1 {
       padding: 0 50px;
       text-align: center;
-    }
-
-    .sec_container {
-      grid-template-columns: 1fr;
-      row-gap: 30px;
-    }
-
-    .form_field {
-      grid-template-columns: 1fr;
-      row-gap: 12px;
     }
   }
 </style>
