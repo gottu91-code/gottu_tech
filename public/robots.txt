@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gottu-tech.com/sitemap-index.xml

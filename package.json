@@ -12,6 +12,7 @@
   "dependencies": {
     "@appzic/astro-reset-css": "^1.2.0",
     "@astrojs/check": "^0.3.3",
+    "@astrojs/sitemap": "^3.0.3",
     "@fontsource/noto-sans-jp": "^5.0.16",
     "astro": "^4.0.6",
     "newt-client-js": "^3.2.8",
