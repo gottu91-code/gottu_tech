@@ -19,6 +19,7 @@
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@astrojs/partytown": "^2.0.3",
     "@types/grecaptcha": "^3.0.7"
   }
 }
