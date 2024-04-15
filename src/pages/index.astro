@@ -9,6 +9,7 @@ import azamiannShirahama from '@images/azamiann-shirahama.jpg'
 import azamiRentalcar from '@images/azami-rentalcar.jpg'
 import casualStayAguncha from '@images/casual_stay_aguncha.jpg'
 import hillsVillaMiyako from '@images/hills_villa_miyako_lp.jpg'
+import rush from '@images/rush.jpg'
 import ExternalLinkIcon from '@images/ExternalLinkIcon.astro';
 import SecBlog from '@components/SecBlog.astro';
 ---
@@ -66,6 +67,52 @@ import SecBlog from '@components/SecBlog.astro';
             <div class="card">
               <div class="card_image">
                 <Image
+                  src={rush}
+                  alt='カットサロン rush'
+                />
+              </div>
+
+              <div class="works_card_info">
+                <ul>
+                  <li>
+                    <p class="label">Name</p>
+                    <p class="value">カットサロン rush</p>
+                  </li>
+                  <li>
+                    <p class="label">Type</p>
+                    <p class="value">Web Site</p>
+                  </li>
+                  <li>
+                    <p class="label">Phase</p>
+                    <p class="value">
+                      Design<br>
+                      Coding<br>
+                      ...All Others<br>
+                    </p>
+                  </li>
+                  <li>
+                    <p class="label">Tech</p>
+                    <p class="value">
+                      Astro<br>
+                      Newt
+                    </p>
+                  </li>
+                  <li>
+                    <p class="label">URL</p>
+                    <p class="value">
+                      <a href="https://www.osaka-rush.co.jp/" target="_blank">
+                        https://www.osaka-rush.co.jp/
+                        <ExternalLinkIcon />
+                      </a>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card_image">
+                <Image
                   src={hillsVillaMiyako}
                   alt='ヒルズヴィラ宮古島LP'
                 />
@@ -91,7 +138,10 @@ import SecBlog from '@components/SecBlog.astro';
                   </li>
                   <li>
                     <p class="label">Tech</p>
-                    <p class="value">Astro</p>
+                    <p class="value">
+                      Astro<br>
+                      WordPress
+                    </p>
                   </li>
                   <li>
                     <p class="label">URL</p>
