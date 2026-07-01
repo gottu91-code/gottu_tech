@@ -7,10 +7,19 @@ import XIcon from "@images/XIcon.astro";
   <div class="header_inner">
     <a class="logo" href="/">Gottu Tech</a>
 
-    <nav class="header_nav">
+    <!-- <nav class="header_nav">
       <ul>
         <li>
-          <a href="/#sec_about">About</a>
+          <a href="/#sec_concept">Concept</a>
+        </li>
+        <li>
+          <a href="/#sec_mvv">Mission / Vision / Value</a>
+        </li>
+        <li>
+          <a href="/#sec_message">Message</a>
+        </li>
+        <li>
+          <a href="/#sec_why_how_what">Why / How / What</a>
         </li>
         <li>
           <a href="/#sec_works">Works</a>
@@ -22,7 +31,7 @@ import XIcon from "@images/XIcon.astro";
           <a href="/contact">Contact</a>
         </li>
       </ul>
-    </nav>
+    </nav> -->
 
     <div class="header_sns_icons">
       <a href="https://twitter.com/gottu91" target="_blank" aria-label="X">
@@ -45,7 +54,16 @@ import XIcon from "@images/XIcon.astro";
   <div class="header_hg_menu_list">
     <ul>
       <li>
-        <a href="/#sec_about">About</a>
+        <a href="/#sec_concept">Concept</a>
+      </li>
+      <li>
+        <a href="/#sec_mvv">Mission / Vision / Value</a>
+      </li>
+      <li>
+        <a href="/#sec_message">Message</a>
+      </li>
+      <li>
+        <a href="/#sec_why_how_what">Why / How / What</a>
       </li>
       <li>
         <a href="/#sec_works">Works</a>
@@ -122,6 +140,9 @@ import XIcon from "@images/XIcon.astro";
   .header_nav ul {
     display: flex;
     column-gap: 30px;
+    flex-wrap: wrap;
+    justify-content: end;
+    row-gap: 8px;
   }
 
   .header_hg_menu_btn {
@@ -196,7 +217,7 @@ import XIcon from "@images/XIcon.astro";
 
     .header_hg_menu_list ul {
       display: grid;
-      row-gap: 40px;
+      row-gap: 16px;
     }
 
     .header_hg_menu_list ul li {
